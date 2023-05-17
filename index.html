@@ -24,6 +24,7 @@
       const searchInput = document.getElementById('search-input');
       const jobResults = document.getElementById('job-results');
 
+
       function fetchJobs(searchQuery) {
         const url = `https://jsearch.p.rapidapi.com/search?query=${searchQuery}&page=1&num_pages=1`;
         const options = {
@@ -63,6 +64,7 @@
         .catch(error => console.error(error));
       
       }
+
 
       searchForm.addEventListener('submit', event => {
         event.preventDefault();
