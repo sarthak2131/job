@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
           jobResults.innerHTML = '';
 
           // Process and display the job results
-          const jobs = data.results;
+          const jobs = data.results.data;
           const jobsString = jobs.map(job => `
             <div>
               <h2>${job.title}</h2>
