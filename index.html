@@ -37,8 +37,7 @@
         fetch(url, options)
           .then(response => response.json())
           .then(data => {
-            console.log(data);
-
+              console.log(JSON.stringify(data)); // Convert data to string before logging
             // Check if data.results exists
             if (data.results && Array.isArray(data.results)) {
               // Clear previous job results
