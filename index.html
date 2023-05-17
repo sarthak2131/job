@@ -24,8 +24,8 @@
       const searchInput = document.getElementById('search-input');
       const jobResults = document.getElementById('job-results');
 
-      function fetchJobs(searchQuery) {
-        const url = `https://jsearch.p.rapidapi.com/search?query=${searchQuery}&page=1&num_pages=1`;
+      function fetchJobs(query) {
+        const url = `https://jsearch.p.rapidapi.com/search?query=${query}&page=1&num_pages=1`;
         const options = {
           method: 'GET',
           headers: {
@@ -37,31 +37,37 @@
         fetch(url, options)
           .then(response => response.json())
           .then(data => {
-              console.log(JSON.stringify(data)); // Convert data to string before logging
-            // Check if data.results exists
-            if (data.results && Array.isArray(data.results)) {
+            console.log(JSON.stringify(data)); // Convert data to string before logging
+
+            if (data && data.results && Array.isArray(data.results)) {
               // Clear previous job results
               jobResults.innerHTML = '';
 
-              // Process and display the job results
               const jobs = data.results;
-              const jobsString = jobs.map(job => `
-                <div>
-                  <h2>${job.employer_company_type}</h2>
-                  <p>${job.company_name}</p>
-                  <p>${job.location}</p>
-                  <p>${job.description}</p>
-                  <p>2222222222</p>
 
-    </div>
-              `).join("");
+              if (jobs.length > 0) {
+                const jobsString = jobs.map(job => `
+                  <div>
+                    <h2>${job.title}</h2>
+                    <p>${job.company_name}</p>
+                    <p>${job.location}</p>
+                    <p>${job.description}</p>
+                  </div>
+                `).join("");
 
-              jobResults.innerHTML = jobsString;
+                jobResults.innerHTML = jobsString;
+              } else {
+                jobResults.innerHTML = '<p>No job results found.</p>';
+              }
             } else {
-              jobResults.innerHTML = '<p>No job results found.</p>';
+              console.error('Invalid data structure:', data);
+              jobResults.innerHTML = '<p>Error occurred while retrieving job results.</p>';
             }
           })
-          .catch(error => console.error(error));
+          .catch(error => {
+            console.error(error);
+            jobResults.innerHTML = '<p>Error occurred while retrieving job results.</p>';
+          });
       }
 
       searchForm.addEventListener('submit', event => {
