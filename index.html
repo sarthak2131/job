@@ -24,8 +24,8 @@
       const searchInput = document.getElementById('search-input');
       const jobResults = document.getElementById('job-results');
 
-      function fetchJobs(query) {
-        const url = `https://jsearch.p.rapidapi.com/search?query=${query}&page=1&num_pages=1`;
+      function fetchJobs(searchQuery) {
+        const url = `https://jsearch.p.rapidapi.com/search?query=${searchQuery}&page=1&num_pages=1`;
         const options = {
           method: 'GET',
           headers: {
