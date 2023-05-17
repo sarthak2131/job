@@ -29,12 +29,12 @@
     </style>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
+  <body class="bg-gray-100">
     <dh-component>
       <!--   more free components available at www.TailwindUIKit.com -->
-      <nav class="w-full border-b">
+      <nav class="w-full border-b bg-gray-100">
         <div
-          class="py-5 md:py-0 container mx-auto px-6 flex items-center justify-between"
+          class="py-5 md:py-0 container mx-auto px-6 flex items-center justify-between bg-gray-100"
         >
           <div aria-label="Home. logo" role="img">
             <img
@@ -99,7 +99,7 @@
                 <li
                   class="text-gray-700 hover:text-gray-900 cursor-pointer text-base lg:text-lg pt-10 md:pt-0"
                 >
-                  <a href="search.html">Search</a>
+                  <a href="index.html">Home</a>
                 </li>
                 <li
                   class="text-gray-700 hover:text-gray-900 cursor-pointer text-base lg:text-lg pt-10 md:pt-0 md:ml-5 lg:ml-10"
@@ -114,7 +114,7 @@
                 <li
                   class="text-gray-700 hover:text-gray-900 cursor-pointer text-base lg:text-lg pt-10 md:pt-0 md:ml-5 lg:ml-10"
                 >
-                  <a href="about.html">About Us</a>
+                  <a href="about.html ">About Us</a>
                 </li>
               </ul>
             </div>
@@ -134,30 +134,44 @@
             class="w-11/12 sm:w-2/3 lg:flex justify-center items-center flex-col mb-5 sm:mb-10"
           >
             <h1
-              class="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center text-gray-800 font-black leading-7 md:leading-10"
+              class="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-3xl text-center text-gray-800 font-black leading-7 md:leading-10"
             >
-              A Job Providing
-              <span class="text-indigo-700">Website</span>
-              Where you can find your dream Job
+              Job Search
+              <span class="text-indigo-700">Results</span>
             </h1>
-            <p
-              class="mt-5 sm:mt-10 lg:w-10/12 text-gray-400 font-normal text-center text-sm sm:text-lg"
-            >
-              Find your dream job today! Explore job listings and connect with
-              top employers.
-            </p>
           </div>
-          <div class="flex justify-center items-center">
-            <a href="search.html">
+          <form
+            id="search-form"
+            class="w-11/12 sm:w-2/3 lg:flex justify-center items-center mb-5 sm:mb-10"
+          >
+            <div
+              class="w-11/12 sm:w-2/3 lg:flex justify-center items-center mb-5 sm:mb-10"
+            >
+              <input
+                class="bg-gray-100 rounded-lg rounded-r-none text-base leading-none text-gray-800 p-5 w-4/5 border border-transparent focus:outline-none focus:border-gray-500"
+                input
+                type="text"
+                id="search-input"
+                placeholder="Search Job"
+              />
               <button
-                class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 bg-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 lg:text-xl lg:font-bold rounded text-white px-4 sm:px-10 border border-indigo-700 py-2 sm:py-4 text-sm"
+                class="w-32 rounded-l-none hover:bg-indigo-600 bg-indigo-700 rounded text-base font-medium leading-none text-white p-5 uppercase focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700"
+                type="submit"
               >
-                Search Job
-              </button></a
-            >
-          </div>
+                Search
+              </button>
+            </div>
+          </form>
         </div>
+        <table border="2">
+          <div
+            id="job-results"
+            class="text-white text-4xl table-auto text-center bg-indigo-700 text-[22px] before:content-['Festivus]"
+          ></div>
+        </table>
       </div>
+      <hr />
+
       <footer class="bg-neutral-300 p-8 text-slate-500 mx-auto">
         <section class="mb-6 flex lg:grid lg:grid-cols-12 flex-col lg:flex-row">
           <div
@@ -203,5 +217,7 @@
         <h6 class="text-center">© 2023 Made with ❤️ by @sarthak2131</h6>
       </footer>
     </dh-component>
+
+    <script src="script.js"></script>
   </body>
 </html>
